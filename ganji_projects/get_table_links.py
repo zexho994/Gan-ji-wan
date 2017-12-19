@@ -1,0 +1,82 @@
+import requests
+from bs4 import BeautifulSoup
+
+url='http://cs.ganji.com/wu/'
+wb_data=requests.get(url)
+soup=BeautifulSoup(wb_data.text,'lxml')
+links_list=soup.select('dl.fenlei dd a')
+for links in links_list:
+    link=links.get('href')
+    url_table='http://cs.ganji.com'+link
+
+
+channel_list='''
+    http://cs.ganji.com/chuangdian/
+    http://cs.ganji.com/guizi/
+    http://cs.ganji.com/zhuoyi/
+    http://cs.ganji.com/shafachaji/
+    http://cs.ganji.com/zixingchemaimai/
+    http://cs.ganji.com/diandongche/
+    http://cs.ganji.com/motuoche/
+    http://cs.ganji.com/iphone/
+    http://cs.ganji.com/nokia/
+    http://cs.ganji.com/htc/
+    http://cs.ganji.com/sanxingshouji/
+    http://cs.ganji.com/motorola/
+    http://cs.ganji.com/shouji/_%E5%B0%8F%E7%B1%B3/
+    http://cs.ganji.com/shouji/_%E9%AD%85%E6%97%8F/
+    http://cs.ganji.com/bangongjiaju/
+    http://cs.ganji.com/jiguangyitiji/
+    http://cs.ganji.com/dayinji/z1/
+    http://cs.ganji.com/shipinjiagongshebei/
+    http://cs.ganji.com/shengchanjiamengshebei/
+    http://cs.ganji.com/jichuang/
+    http://cs.ganji.com/tuolaji/
+    http://cs.ganji.com/dianshi/
+    http://cs.ganji.com/bingxiang/
+    http://cs.ganji.com/kongtiao/
+    http://cs.ganji.com/reshuiqi/
+    http://cs.ganji.com/xiyiji/
+    http://cs.ganji.com/diancilu/
+    http://cs.ganji.com/weibolu/
+    http://cs.ganji.com/yueqiyinxiang/
+    http://cs.ganji.com/pingbandiannao/z1/
+    http://cs.ganji.com/ershoubijibendiannao/z1/_%E6%88%B4%E5%B0%94/
+    http://cs.ganji.com/ershoubijibendiannao/z1/_%E5%8D%8E%E7%A1%95/
+    http://cs.ganji.com/ershoubijibendiannao/z1/_%E6%83%A0%E6%99%AE/
+    http://cs.ganji.com/yueqi/
+    http://cs.ganji.com/yinxiang/
+    http://cs.ganji.com/yundongqicai/
+    http://cs.ganji.com/tongche/
+    http://cs.ganji.com/tongzhuang/
+    http://cs.ganji.com/yingerche/
+    http://cs.ganji.com/yingerchuang/z1/
+    http://cs.ganji.com/niaobushi/
+    http://cs.ganji.com/wanju/
+    http://cs.ganji.com/naifen/
+    http://cs.ganji.com/taishidiannaozhengji/
+    http://cs.ganji.com/xianka/
+    http://cs.ganji.com/cpu/
+    http://cs.ganji.com/yingpan/
+    http://cs.ganji.com/luyouqi/
+    http://cs.ganji.com/3gwangka/
+    http://cs.ganji.com/shoucangpin/
+    http://cs.ganji.com/qitalipinzhuanrang/
+    http://cs.ganji.com/baojianpin/
+    http://cs.ganji.com/xiaofeika/
+    http://cs.ganji.com/fushi/
+    http://cs.ganji.com/xiangbao/
+    http://cs.ganji.com/xuemao/
+    http://cs.ganji.com/shoubiao/
+    http://cs.ganji.com/shipin/
+    http://cs.ganji.com/huazhuangpin/
+    http://cs.ganji.com/hufupin/
+    http://cs.ganji.com/shumaxiangji/
+    http://cs.ganji.com/shumashexiangji/
+    http://cs.ganji.com/youxiji/
+    http://cs.ganji.com/suishenting/
+    http://cs.ganji.com/yidongcunchu/
+    http://cs.ganji.com/zibubaojian/z2/
+    http://cs.ganji.com/anmobaojian/z1/
+    http://cs.ganji.com/bawanwujian/
+    '''
